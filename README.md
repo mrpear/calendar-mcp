@@ -46,16 +46,16 @@ Add this to your `~/.claude.json` file:
   "mcpServers": {
     "calendar": {
       "type": "stdio",
-      "command": "/Users/<USERNAME>/.local/bin/uv",
+      "command": "/path/to/uv",
       "args": [
         "--directory",
-        "/Users/pgruszka/PycharmProjects/calendar-mcp",
+        "/path/to/calendar-mcp",
         "run",
         "--with",
         "mcp[cli]",
         "mcp",
         "run",
-        "/Users/pgruszka/PycharmProjects/calendar-mcp/src/calendar_mcp_server/server.py"
+        "/path/to/calendar-mcp/src/calendar_mcp_server/server.py"
       ]
     }
   }
@@ -63,20 +63,19 @@ Add this to your `~/.claude.json` file:
 ```
 
 **Notes:**
-- Replace `/Users/pgruszka/PycharmProjects/calendar-mcp` with your actual path
-- Find `uv` path with: `which uv`
+- Replace `/path/to/calendar-mcp` with your actual calendar-mcp directory path
+- Replace `/path/to/uv` with your uv binary path (find it with: `which uv`)
 - Restart Claude Code after configuration
 
 ## Usage Example
 
 ```
-User: "What workouts do I have this week?"
+User: "What is today's date and what week is it?"
 
-Claude calls: mcp__calendar__get_week_range(date="2026-02-18")
-Server returns: {"monday": "2026-02-16", "sunday": "2026-02-22"}
+Claude calls: mcp__calendar__get_current_date()
+Server returns: {"date": "2026-02-18", "day_name": "Wednesday", "week_number": 8, ...}
 
-Claude calls: mcp__intervals-icu__get_events(start_date="2026-02-16", end_date="2026-02-22")
-Claude responds: "This week (Feb 16-22) you have workouts on..."
+Claude responds: "Today is Wednesday, February 18th, 2026 (week 8)."
 ```
 
 ## Available Tools
