@@ -73,17 +73,3 @@ The server runs via `uv` when invoked by Claude Code. See README.md for `~/.clau
 3. Test manually with `main.py`
    - Add test function following existing pattern
    - Call from `if __name__ == "__main__"` block
-
-## Integration Context
-
-This MCP server is designed to work alongside `intervals-mcp-server` for cycling training plan management. Common usage pattern:
-
-```
-Claude calls: mcp__calendar__get_week_range(date="2026-02-18")
-Returns: {"monday": "2026-02-16", "sunday": "2026-02-22"}
-
-Claude calls: mcp__intervals-icu__get_events(start_date="2026-02-16", end_date="2026-02-22")
-Returns: List of workouts for the week
-```
-
-This allows Claude to understand "this week" and other temporal concepts accurately.
