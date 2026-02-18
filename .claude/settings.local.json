@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__calendar__get_current_date",
+      "mcp__calendar__get_week_range",
+      "mcp__calendar__get_day_of_week"
+    ]
+  }
+}
